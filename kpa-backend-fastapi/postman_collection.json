@@ -1,0 +1,174 @@
+{
+  "info": {
+    "name": "KPA Backend \u2013 Dipra Banerjee",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"7760873976\",\n  \"password\": \"to_share@123\"\n}"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Wheel Specifications",
+      "item": [
+        {
+          "name": "Upsert Wheel Spec",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/forms/wheel-specifications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "forms",
+                "wheel-specifications"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"wheel_code\": \"W-1001\",\n  \"diameter_mm\": 920,\n  \"material\": \"EN8\",\n  \"manufacturer\": \"ACME\",\n  \"notes\": \"Trial\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Specs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/forms/wheel-specifications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "forms",
+                "wheel-specifications"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Bogie Checksheet",
+      "item": [
+        {
+          "name": "Create Bogie Checksheet",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/forms/bogie-checksheet",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "forms",
+                "bogie-checksheet"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"form_no\": \"KPA-BC-0001\",\n  \"submitted_by\": \"Inspector A\",\n  \"data\": {\n    \"bogie_id\": \"BG-7788\",\n    \"date\": \"2025-08-22\",\n    \"wheels\": [{\"position\":\"L1\",\"thickness\":32.1},{\"position\":\"R1\",\"thickness\":31.9}],\n    \"remarks\": \"OK\"\n  }\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Bogie Checksheet by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/forms/bogie-checksheet/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "forms",
+                "bogie-checksheet",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
